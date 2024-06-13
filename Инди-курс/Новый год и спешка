@@ -1,0 +1,14 @@
+n, k = map(int, input().split())
+time_happy = 4 * 60
+tasks = 5
+time_tasks = 0
+time = time_happy - k
+count = 0
+
+
+
+while time_tasks <= time and count <= n:
+    count += 1
+    time_tasks += count * tasks
+
+print(count)
