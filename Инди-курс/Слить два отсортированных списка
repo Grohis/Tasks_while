@@ -1,0 +1,24 @@
+n, m = map(int, input().split())  # Вводим значения n и m
+
+x_list = list(map(int, input().split()))  # Вводим список x_list
+y_list = list(map(int, input().split()))  # Вводим список y_list
+
+x_step, y_step = 0, 0  # Индексы для x_list и y_list
+result = []  # Результирующий список
+
+# Основной цикл для объединения двух списков
+while x_step < n and y_step < m:
+    if x_list[x_step] < y_list[y_step]:
+        result.append(x_list[x_step])
+        x_step += 1
+    else:
+        result.append(y_list[y_step])
+        y_step += 1
+
+# Добавляем оставшиеся элементы из x_list, если они есть
+result.extend(x_list[x_step:])
+
+# Добавляем оставшиеся элементы из y_list, если они есть
+result.extend(y_list[y_step:])
+
+print(*result)  # Выводим результирующий список
