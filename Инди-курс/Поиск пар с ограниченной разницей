@@ -1,0 +1,29 @@
+# Ввод количества мужчин
+man = int(input())
+# Ввод уровней мужчин, сортировка уровней
+level_man = sorted(map(int, input().split()))
+# Количество уровней мужчин
+count_man = len(level_man)
+# Ввод количества девушек
+girle = int(input())
+# Ввод уровней девушек, сортировка уровней
+level_girle = sorted(map(int, input().split()))
+# Количество уровней девушек
+count_girle = len(level_girle)
+# Инициализация указателей для мужчин и девушек, и счётчика пар
+step_man = step_girl = pair = 0
+# Проход по спискам уровней мужчин и девушек
+while step_man < count_man and step_girl < count_girle:
+    # Проверка на соответствие уровней (разность не больше 1)
+    if abs(level_man[step_man] - level_girle[step_girl]) <= 1:
+        pair += 1  # Увеличиваем счётчик пар
+        step_man += 1  # Переходим к следующему мужчине
+        step_girl += 1  # Переходим к следующей девушке
+    # Если уровень текущего мужчины меньше уровня текущей девушки
+    elif level_man[step_man] < level_girle[step_girl]:
+        step_man += 1  # Переходим к следующему мужчине
+    else:
+        step_girl += 1  # Переходим к следующей девушке
+
+# Вывод количества найденных пар
+print(pair)
